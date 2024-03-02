@@ -21,5 +21,10 @@ public class User implements Serializable {
 
     private String username;
     private String password;
+    private String authToken;
+
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
 
 }

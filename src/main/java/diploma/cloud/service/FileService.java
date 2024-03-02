@@ -14,10 +14,7 @@ public class FileService {
     @Autowired
     private FileRepository fileRepository;
 
-    //uploadFile, getAllFiles и deleteFile
-
     public File uploadFile(MultipartFile file, String filename) throws IOException {
-        // Логика загрузки файла
         File newFile = new File();
         newFile.setFilename(filename);
         newFile.setContent(file.getBytes());

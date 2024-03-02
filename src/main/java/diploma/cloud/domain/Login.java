@@ -1,6 +1,5 @@
 package diploma.cloud.domain;
 
-import jakarta.persistence.Entity;
 import lombok.*;
 
 @ToString
