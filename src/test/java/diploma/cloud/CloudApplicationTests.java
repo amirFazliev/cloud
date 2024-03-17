@@ -3,6 +3,7 @@ package diploma.cloud;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 @SpringBootTest
 class CloudApplicationTests {
 
@@ -10,4 +11,7 @@ class CloudApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void main() {
+    }
 }

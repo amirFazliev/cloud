@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -19,7 +20,7 @@ public class UserService {
         return userRepository.existsByAuthToken(authToken);
     }
 
-    public boolean login (@Valid @RequestBody Login login) {
+    public boolean login(@Valid @RequestBody Login login) {
         User user = userRepository.findByUsernameAndPassword(login.getLogin(), login.getPassword());
         if (user != null) {
             String authToken = generateAuthToken();
@@ -34,7 +35,7 @@ public class UserService {
         return UUID.randomUUID().toString();
     }
 
-    public void logout (String authToken) {
+    public void logout(String authToken) {
         User user = userRepository.findByAuthToken(authToken);
         if (user != null) {
             user.setAuthToken(null);

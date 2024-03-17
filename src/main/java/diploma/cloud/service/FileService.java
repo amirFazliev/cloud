@@ -28,4 +28,28 @@ public class FileService {
     public void deleteFile(Long id) {
         fileRepository.deleteFile(id);
     }
+
+    public boolean editFileName(Long id, String name) {
+        File file = fileRepository.findById(id).orElse(null);
+        if (file != null) {
+            file.setFilename(name);
+            fileRepository.save(file);
+            return true;
+        }
+        return false;
+    }
+
+    public File getFileByName(String filename) {
+        return fileRepository.findByFilename(filename);
+    }
+
+    public void editFileContent(MultipartFile file, String filename) throws IOException {
+        File fileToEdit = fileRepository.findByFilename(filename);
+        fileToEdit.setContent(file.getBytes());
+        fileRepository.save(fileToEdit);
+    }
+
+    public void deleteFile(String filename) {
+        fileRepository.deleteFile(fileRepository.findByFilename(filename).getId());
+    }
 }
