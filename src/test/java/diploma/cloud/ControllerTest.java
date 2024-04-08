@@ -4,12 +4,8 @@ import diploma.cloud.controller.ControllerApp;
 import diploma.cloud.domain.File;
 import diploma.cloud.domain.Users;
 import diploma.cloud.service.ServiceApp;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 

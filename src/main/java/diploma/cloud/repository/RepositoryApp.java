@@ -98,4 +98,18 @@ public class RepositoryApp {
        return null;
    }
 
+    public byte[] getFileContent(String fileName) {
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT hash FROM files WHERE filename = ?")) {
+            ps.setString(1, fileName);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getBytes("hash");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

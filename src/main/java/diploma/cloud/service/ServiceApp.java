@@ -25,7 +25,7 @@ public class ServiceApp {
         }
     }
 
-    private String generateToken() {
+    protected String generateToken() {
         return UUID.randomUUID().toString();
     }
 
