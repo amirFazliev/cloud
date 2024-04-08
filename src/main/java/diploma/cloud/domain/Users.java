@@ -14,17 +14,11 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
+public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String username;
+    private String login;
     private String password;
     private String authToken;
-
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
-    }
 
 }
